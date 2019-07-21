@@ -51,7 +51,11 @@ def strain_energy(u, epsv):
 def dissipation_potential(depsv):
     return 0.5*eta1*inner(depsv, depsv)
 
-Traction = Constant(0.)
+Traction = Constant(0.)Traction = Constant(0.)
+incremental_potential = strain_energy(u, epsv)*dx \
+                        + dt*dissipation_potential((epsv-epsv_old)/dt)*dx \
+                        - Traction*u[1]*ds(1)
+
 F = derivative(incremental_potential, w, w_)
 form = replace(F, {w: dw})
 
