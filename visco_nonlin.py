@@ -2,7 +2,7 @@ from dolfin import *
 from ufl import replace
 import numpy as np
 import matplotlib.pyplot as plt
-
+plt.rc('text',usetex=True)
 L, H = 0.1, 0.2
 mesh = RectangleMesh(Point(0., 0.), Point(L, H), 5, 10)
 
